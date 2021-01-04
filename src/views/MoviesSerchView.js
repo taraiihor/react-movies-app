@@ -7,8 +7,11 @@ export default function MoviesSerchView() {
   const [movie, setMovie] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const history = useHistory();
+  // console.log(history);
   const location = useLocation();
+  // console.log(location);
   const searchMovie = new URLSearchParams(location.search).get('query') ?? '';
+  // console.log(searchMovie);
 
   const handleNameChangle = event => {
     setSearchQuery(event.target.value);

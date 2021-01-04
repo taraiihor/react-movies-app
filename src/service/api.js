@@ -16,6 +16,19 @@ export function fetchMoviesId(movieId) {
     `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`,
   );
 }
+
+export function fetchCast(moviedId) {
+  return fetchErrorHandling(
+    `${BASE_URL}/movie/${moviedId}/credits?api_key=${KEY}&language=en-US`,
+  );
+}
+
+export function fetchReviews(moviedId) {
+  return fetchErrorHandling(
+    `${BASE_URL}/movie/${moviedId}/reviews?api_key=${KEY}&language=en-US&page=1`,
+  );
+}
+
 export function fetchSearchMovies(searchQuery) {
   return fetchErrorHandling(
     `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`,
