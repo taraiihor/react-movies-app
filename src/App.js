@@ -7,7 +7,7 @@ import MoviesSerchView from './views/MoviesSerchView';
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Navigation />
       <Switch>
         <Route path="/" exact>
