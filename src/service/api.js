@@ -29,8 +29,8 @@ export function fetchReviews(moviedId) {
   );
 }
 
-export function fetchSearchMovies(searchQuery) {
+export function fetchSearchMovies(searchQuery, page) {
   return fetchErrorHandling(
-    `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=1&include_adult=false`,
+    `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`,
   );
 }

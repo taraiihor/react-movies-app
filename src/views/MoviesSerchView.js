@@ -7,6 +7,7 @@ export default function MoviesSerchView() {
   const { url } = useRouteMatch();
   const [movie, setMovie] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
 
   const history = useHistory();
@@ -14,14 +15,20 @@ export default function MoviesSerchView() {
   const location = useLocation();
   // console.log(location);
   const searchMovie = new URLSearchParams(location.search).get('query') ?? '';
-  // console.log(searchMovie);
 
+  // console.log(searchMovie);
+  const updatePage = () => {
+    setPage(page + 1);
+  };
   const handleNameChangle = event => {
     setSearchQuery(event.target.value);
   };
   const handleSubmit = event => {
     event.preventDefault();
-    history.push({ ...location, search: `query=${searchQuery}` });
+    history.push({
+      ...location,
+      search: `query=${searchQuery}`,
+    });
     setSearchQuery('');
     setMovie(null);
     setError(null);
@@ -31,7 +38,7 @@ export default function MoviesSerchView() {
       return;
     }
     moviesApi
-      .fetchSearchMovies(searchMovie)
+      .fetchSearchMovies(searchMovie, page)
       .then(({ results }) => {
         if (results.length === 0) {
           return Promise.reject(
@@ -43,7 +50,7 @@ export default function MoviesSerchView() {
       .catch(error => {
         setError(error);
       });
-  }, [searchMovie]);
+  }, [searchMovie, page]);
 
   return (
     <>
@@ -65,6 +72,11 @@ export default function MoviesSerchView() {
             </li>
           ))}
         </ul>
+      )}
+      {movie && (
+        <button type="button" onClick={updatePage}>
+          наступні фільми
+        </button>
       )}
     </>
   );
