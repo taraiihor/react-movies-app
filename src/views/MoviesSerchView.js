@@ -7,14 +7,21 @@ import Loader from 'react-loader-spinner';
 import { Pagination } from '@material-ui/lab';
 import useStyles from '../service/PaginationStyles';
 
+const Status = {
+  IDLE: 'idle',
+  PENDING: 'pending',
+  RESOLVED: 'resolved',
+  REJECTED: 'rejected',
+};
+
 export default function MoviesSerchView() {
   const { url } = useRouteMatch();
   const [movie, setMovie] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
-  // const [page, setPage] = useState(1);
+
   const [error, setError] = useState(null);
   const [totalPage, setTotalPage] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState(Status.IDLE);
 
   //Запуск стилів пагінації
   const classes = useStyles();
@@ -42,12 +49,15 @@ export default function MoviesSerchView() {
     setSearchQuery('');
     setMovie(null);
     setError(null);
+    setStatus(Status.IDLE);
   };
 
   useEffect(() => {
     if (searchMovie === '') {
       return;
     }
+    setStatus(Status.PENDING);
+
     moviesApi
       .fetchSearchMovies(searchMovie, page)
       .then(({ results, total_pages }) => {
@@ -56,13 +66,15 @@ export default function MoviesSerchView() {
             new Error(`По вашому пошуку нічого не знайшли`),
           );
         }
+
         setMovie(results);
         setTotalPage(total_pages);
+        setStatus(Status.RESOLVED);
       })
       .catch(error => {
         setError(error);
-      })
-      .finally(() => setLoading(false));
+        setStatus(Status.REJECTED);
+      });
   }, [searchMovie, page]);
 
   return (
@@ -71,8 +83,9 @@ export default function MoviesSerchView() {
         <input value={searchQuery} onChange={handleNameChangle} />
         <button type="submit">Пошук</button>
       </form>
-      {error && <ErrorView message={error.message} />}
-      {loading && (
+      {status === Status.IDLE && <div>Ведіть назву Фільму для пошуку. </div>}
+      {status === Status.REJECTED && <ErrorView message={error.message} />}
+      {status === Status.PENDING && (
         <Loader
           className="Loding"
           type="ThreeDots"
@@ -82,7 +95,8 @@ export default function MoviesSerchView() {
           timeout={5000} //3 secs
         />
       )}
-      {movie && (
+
+      {status === Status.RESOLVED && (
         <ul>
           {movie.map(({ title, id }) => (
             <li key={id}>
@@ -95,8 +109,7 @@ export default function MoviesSerchView() {
           ))}
         </ul>
       )}
-
-      {totalPage > 1 && (
+      {status === Status.RESOLVED && totalPage > 1 && (
         <Pagination
           className={classes.root}
           count={totalPage}
