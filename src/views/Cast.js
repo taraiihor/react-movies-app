@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import * as moviesApi from '../service/api';
 import ErrorView from './ErrorView';
+import noImage from '../image/488px-No-Image-Placeholder.svg.png';
 
 export default function CastView({ movieId }) {
   const [cast, setCast] = useState(null);
@@ -30,7 +31,11 @@ export default function CastView({ movieId }) {
           {cast.map(({ id, profile_path, name, character }) => (
             <li key={id}>
               <img
-                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : noImage
+                }
                 alt={name}
                 width="70px"
               />

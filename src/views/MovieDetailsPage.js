@@ -8,6 +8,8 @@ import {
   useHistory,
 } from 'react-router-dom';
 import * as moviesApi from '../service/api';
+import noImage from '../image/488px-No-Image-Placeholder.svg.png';
+import Loader from 'react-loader-spinner';
 
 // import Cast from './Cast';
 // import Reviews from './Reviews';
@@ -47,7 +49,11 @@ export default function MoviedetailsPage() {
                 Назад
               </button>
               <img
-                src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}
+                src={
+                  movies.poster_path
+                    ? `https://image.tmdb.org/t/p/w500/${movies.poster_path}`
+                    : noImage
+                }
                 alt={movies.title}
                 width="220px"
               />
@@ -84,7 +90,20 @@ export default function MoviedetailsPage() {
           </ul>
         </>
       )}
-      <Suspense fallback={<div>Завантажуємо...</div>}>
+      <Suspense
+        fallback={
+          <div>
+            <Loader
+              className="BallTriangle"
+              type="ThreeDots"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={5000} //3 secs
+            />
+          </div>
+        }
+      >
         <Route path={`${path}/cast`}>
           <Cast movieId={movieId} />
         </Route>

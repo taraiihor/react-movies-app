@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouteMatch, Link, useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../service/api';
 import ErrorView from './ErrorView';
+import Loader from 'react-loader-spinner';
 
 import { Pagination } from '@material-ui/lab';
 import useStyles from '../service/PaginationStyles';
@@ -13,6 +14,8 @@ export default function MoviesSerchView() {
   // const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
   const [totalPage, setTotalPage] = useState(0);
+  const [loading, setLoading] = useState(false);
+
   //Запуск стилів пагінації
   const classes = useStyles();
 
@@ -58,7 +61,8 @@ export default function MoviesSerchView() {
       })
       .catch(error => {
         setError(error);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [searchMovie, page]);
 
   return (
@@ -68,7 +72,16 @@ export default function MoviesSerchView() {
         <button type="submit">Пошук</button>
       </form>
       {error && <ErrorView message={error.message} />}
-
+      {loading && (
+        <Loader
+          className="Loding"
+          type="ThreeDots"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={5000} //3 secs
+        />
+      )}
       {movie && (
         <ul>
           {movie.map(({ title, id }) => (
