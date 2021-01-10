@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 import Navigation from './components/Navigation/Navigation';
 import HomeView from './views/HomeView';
 import MovieDetailsPage from './views/MovieDetailsPage';
@@ -12,6 +14,7 @@ function App() {
   return (
     <div className="container">
       <Navigation />
+      <ToastContainer />
       <Suspense
         fallback={
           <Loader
