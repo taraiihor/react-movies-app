@@ -3,6 +3,7 @@ import { useRouteMatch, Link, useHistory, useLocation } from 'react-router-dom';
 import * as moviesApi from '../service/api';
 import ErrorView from './ErrorView';
 import Loader from 'react-loader-spinner';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { Pagination } from '@material-ui/lab';
 import useStyles from '../service/PaginationStyles';
@@ -32,7 +33,7 @@ export default function MoviesSerchView() {
   // console.log(location);
   const searchMovie = new URLSearchParams(location.search).get('query') ?? '';
   const page = new URLSearchParams(location.search).get('page') ?? 1;
-
+  // const notify = () => toast('Wow so easy !');
   //фунція переключання пагінації і збереження сорінки
   const onPaginationPage = (event, page) => {
     history.push({ ...location, search: `query=${searchMovie}&page=${page}` });
@@ -42,6 +43,9 @@ export default function MoviesSerchView() {
   };
   const handleSubmit = event => {
     event.preventDefault();
+    if (searchQuery.trim() === '') {
+      return toast.warning('Ведіть щось');
+    }
     history.push({
       ...location,
       search: `query=${searchQuery}`,
@@ -83,6 +87,8 @@ export default function MoviesSerchView() {
         <input value={searchQuery} onChange={handleNameChangle} />
         <button type="submit">Пошук</button>
       </form>
+      <ToastContainer />
+
       {status === Status.IDLE && <div>Ведіть назву Фільму для пошуку. </div>}
       {status === Status.REJECTED && <ErrorView message={error.message} />}
       {status === Status.PENDING && (

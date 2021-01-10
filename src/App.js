@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Navigation from './components/Navigation/Navigation';
 import HomeView from './views/HomeView';
 import MovieDetailsPage from './views/MovieDetailsPage';
