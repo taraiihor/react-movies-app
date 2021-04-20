@@ -1,0 +1,7 @@
+.bg {
+  margin: 0 auto;
+  display: block;
+  width: 1200px;
+  height: 550px;
+  background-color: chocolate;
+}
