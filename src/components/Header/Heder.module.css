@@ -1,0 +1,33 @@
+.bg {
+  background-color: slategray;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+.logo {
+  display: block;
+  font-family: TwCenMT;
+  font-size: 24.8px;
+  font-weight: 800;
+  font-stretch: condensed;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: 0.99px;
+  text-align: left;
+  color: #ffffff;
+}
+.navigation {
+  margin: 8.5px 30px 9.5px 22px;
+  font-family: HelveticaNeue;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: 0.56px;
+  text-align: right;
+  color: #ffffff;
+}
