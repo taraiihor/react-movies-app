@@ -12,6 +12,7 @@ import MoviesSerchView from './views/MoviesSerchView';
 import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import CardFilm from './components/CardFilm';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <Header />
       <Hero />
       <Navigation />
-
+      <CardFilm />
       <ToastContainer />
       <Suspense
         fallback={

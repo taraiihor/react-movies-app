@@ -1,0 +1,12 @@
+.bg {
+  width: 250px;
+  height: 300px;
+  border-radius: 3px;
+  box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.04);
+  background-color: #b3b3b3;
+}
+.poser {
+  width: 250px;
+  height: 220px;
+  background-color: blue;
+}
