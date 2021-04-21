@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 
 import Container from './components/Container';
 import Navigation from './components/Navigation/Navigation';
-import HomeView from './views/HomeView';
+import HomeView from './views/HomeView/HomeView';
 import MovieDetailsPage from './views/MovieDetailsPage';
 import MoviesSerchView from './views/MoviesSerchView';
 import Loader from 'react-loader-spinner';
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <Hero />
       <Navigation />
-      <CardFilm />
+      {/* <CardFilm /> */}
       <ToastContainer />
       <Suspense
         fallback={

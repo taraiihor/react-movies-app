@@ -1,15 +1,17 @@
 .bg {
   width: 250px;
+  margin: 15px;
   border-radius: 3px;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.04);
   background-color: #e2e2e2;
 }
 .poser {
+  display: flex;
   width: 250px;
-  height: 220px;
-  background: center;
-  background-image: url(../../image/creed.jpg);
-  background-size: cover;
+  max-height: 330px;
+}
+.cover {
+  object-fit: cover;
 }
 .containerText {
   display: flex;
@@ -27,12 +29,16 @@
   line-height: 1.57;
   letter-spacing: 0.56px;
   text-align: left;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   color: #242b2d;
 }
 
 .rating__number {
-  padding: 4px 7px;
+  padding: 3px 6px;
 
   font-family: HelveticaNeue;
   font-weight: 500;
