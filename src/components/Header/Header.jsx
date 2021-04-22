@@ -8,7 +8,7 @@ function Header() {
       <Container>
         <header className={s.header}>
           <Link to="/" className={s.logo}>
-            MOVIES
+            MOVIE
           </Link>
           <form action="">
             <input type="text" />

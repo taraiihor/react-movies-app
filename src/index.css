@@ -41,3 +41,9 @@ h5 {
 a {
   text-decoration: none;
 }
+a:link,
+:visited,
+:active,
+:active {
+  text-decoration: none;
+}

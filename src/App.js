@@ -12,6 +12,7 @@ import MoviesSerchView from './views/MoviesSerchView';
 import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 // import CardFilm from './components/CardFilm';
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           </Route>
         </Switch>
       </Suspense>
+      <Footer />
     </Container>
   );
 }
