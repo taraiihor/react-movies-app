@@ -20,7 +20,7 @@
   padding: 25px 20px 20px 20px;
 }
 .title {
-  width: 144px;
+  width: 160px;
 
   font-size: 14px;
   font-weight: bold;
@@ -55,6 +55,7 @@
 }
 
 .genres {
+  display: flex;
   margin-top: 8px;
 
   font-family: HelveticaNeue;
@@ -65,5 +66,10 @@
   line-height: 1.83;
   letter-spacing: 0.48px;
   text-align: left;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   color: #47c3f0;
 }

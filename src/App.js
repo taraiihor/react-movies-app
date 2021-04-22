@@ -12,7 +12,7 @@ import MoviesSerchView from './views/MoviesSerchView';
 import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import CardFilm from './components/CardFilm';
+// import CardFilm from './components/CardFilm';
 
 function App() {
   return (

@@ -8,7 +8,7 @@ function CardFilmCopy({ id, title, poster_path, vote_average, genres }) {
 
   return (
     <Link to={{ pathname: `/movies/${id}`, state: { from: location } }}>
-      <li className={s.bg}>
+      <li className={s.bg} key={id}>
         <div className={s.poser}>
           <img
             src={
@@ -23,7 +23,14 @@ function CardFilmCopy({ id, title, poster_path, vote_average, genres }) {
         <div className={s.containerText}>
           <h2 className={s.title}>{title}</h2>
           <p className={s.rating__number}>{`${vote_average}`}</p>
-          <p className={s.genres}>{genres.map(genre => genre).join(', ')}</p>
+
+          <ul className={s.genres}>
+            {genres.map(genre => (
+              <li key={genre.id}>
+                <p>{genre.name}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </li>
     </Link>
