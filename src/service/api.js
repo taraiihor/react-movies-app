@@ -35,33 +35,17 @@ export function fetchSearchMovies(searchQuery, page) {
   );
 }
 
-// export function fetchGenres() {
-//   return fetchErrorHandling(`${BASE_URL}/genre/movie/list?api_key=${KEY}`);
-// }
-function fetchPopularArticles() {
-  const url = `${BASE_URL}/trending/movie/day?api_key=${KEY}`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(({ results }) => {
-      return results;
-    });
-}
-function fetchGenres() {
-  const url = `${BASE_URL}/genre/movie/list?api_key=${KEY}`;
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      return data.genres;
-    });
+export function fetchGenres() {
+  return fetchErrorHandling(`${BASE_URL}/genre/movie/list?api_key=${KEY}`);
 }
 export function insertGenresToMovieObj() {
-  return fetchPopularArticles().then(data => {
-    return fetchGenres().then(genresList => {
-      return data.map(movie => ({
+  return fetchTrendingMovies().then(({ results }) => {
+    return fetchGenres().then(({ genres }) => {
+      return results.map(movie => ({
         ...movie,
         release_date: movie.release_date.split('-')[0],
         genres: movie.genre_ids
-          .map(id => genresList.filter(el => el.id === id))
+          .map(id => genres.filter(el => el.id === id))
           .flat(),
       }));
     });

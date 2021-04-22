@@ -1,18 +1,34 @@
 import s from './CardFilm.module.css';
-import photo from '../../image/creed.jpg';
+import noImage from '../../image/488px-No-Image-Placeholder.svg.png';
 
-function CardFilm() {
+import { Link, useLocation } from 'react-router-dom';
+
+function CardFilm({ id, title, poster_path, vote_average, genres }) {
+  const location = useLocation();
+
   return (
-    <li className={s.bg}>
-      <div className={s.poser}>
-        <img src={photo} alt="" className={s.cover} />
-      </div>
-      <div className={s.containerText}>
-        <h2 className={s.title}>AssAssin’s Creed</h2>
-        <p className={s.rating__number}>4.2</p>
-        <p className={s.genres}>Action, Adventure, Fantasy</p>
-      </div>
-    </li>
+    <Link to={{ pathname: `/movies/${id}`, state: { from: location } }}>
+      <li className={s.bg} key={id}>
+        <div className={s.poser}>
+          <img
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                : noImage
+            }
+            alt=""
+            className={s.cover}
+          />
+        </div>
+        <div className={s.containerText}>
+          <h2 className={s.title}>{title}</h2>
+          <p className={s.rating__number}>{`${vote_average}`}</p>
+          <p className={s.genres}>
+            {genres.map(genre => genre.name).join(', ')}
+          </p>
+        </div>
+      </li>
+    </Link>
   );
 }
 

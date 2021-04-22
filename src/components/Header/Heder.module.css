@@ -1,11 +1,15 @@
 .bg {
-  background-color: slategray;
+  background-color: rgb(19, 25, 31);
 }
 .header {
+  position: absolute;
+  z-index: 1;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
+  width: 1100px;
 }
 .logo {
   display: block;

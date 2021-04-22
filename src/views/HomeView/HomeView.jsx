@@ -1,7 +1,7 @@
 import s from './HomeView.module.css';
 import { useEffect, useState } from 'react';
 // import { useLocation } from 'react-router-dom';
-import CardFilmCopy from '../../components/CardFilm/CardFilmCopy';
+import CardFilm from '../../components/CardFilm';
 import * as moviesApi from '../../service/api';
 
 export default function HomeView() {
@@ -16,7 +16,8 @@ export default function HomeView() {
       <ul className={s.content}>
         {movies &&
           movies.map(({ id, title, poster_path, vote_average, genres }) => (
-            <CardFilmCopy
+            <CardFilm
+              id={id}
               key={id}
               title={title}
               poster_path={poster_path}
