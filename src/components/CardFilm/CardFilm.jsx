@@ -23,9 +23,9 @@ function CardFilm({ id, title, poster_path, vote_average, genres }) {
         <div className={s.containerText}>
           <h2 className={s.title}>{title}</h2>
           <p className={s.rating__number}>{`${vote_average}`}</p>
-          <p className={s.genres}>
+          {/* <p className={s.genres}>
             {genres.map(genre => genre.name).join(', ')}
-          </p>
+          </p> */}
         </div>
       </li>
     </Link>

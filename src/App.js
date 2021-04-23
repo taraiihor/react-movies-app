@@ -8,7 +8,7 @@ import Container from './components/Container';
 import Navigation from './components/Navigation/Navigation';
 import HomeView from './views/HomeView/HomeView';
 import MovieDetailsPage from './views/MovieDetailsPage';
-import MoviesSerchView from './views/MoviesSerchView';
+import MoviesSerchView from './views/MoviesSerchView/';
 import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Hero from './components/Hero';

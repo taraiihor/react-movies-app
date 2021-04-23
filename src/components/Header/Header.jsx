@@ -10,9 +10,9 @@ function Header() {
           <Link to="/" className={s.logo}>
             MOVIE
           </Link>
-          <form action="">
+          {/* <form action="">
             <input type="text" />
-          </form>
+          </form> */}
           <nav>
             <NavLink className={s.navigation} to="/favorite">
               Favorite

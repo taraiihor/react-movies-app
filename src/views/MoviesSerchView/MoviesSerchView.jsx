@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useRouteMatch, Link, useHistory, useLocation } from 'react-router-dom';
-import * as moviesApi from '../service/api';
-import ErrorView from './ErrorView';
+import { useHistory, useLocation } from 'react-router-dom';
+// import {  useRouteMatch, Link } from 'react-router-dom';
+import s from './MoviesSerchView.module.css';
+
+import * as moviesApi from '../../service/api';
+import ErrorView from '../ErrorView';
 import Loader from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 
 import { Pagination } from '@material-ui/lab';
-import useStyles from '../service/PaginationStyles';
+import useStyles from '../../service/PaginationStyles';
+import CardFilm from '../../components/CardFilm';
 
 const Status = {
   IDLE: 'idle',
@@ -16,14 +20,13 @@ const Status = {
 };
 
 export default function MoviesSerchView() {
-  const { url } = useRouteMatch();
+  // const { url } = useRouteMatch();
   const [movie, setMovie] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   const [error, setError] = useState(null);
   const [totalPage, setTotalPage] = useState(0);
   const [status, setStatus] = useState(Status.IDLE);
-
   //Запуск стилів пагінації
   const classes = useStyles();
 
@@ -69,7 +72,7 @@ export default function MoviesSerchView() {
             new Error(`По вашому пошуку нічого не знайшли`),
           );
         }
-
+        console.log(results);
         setMovie(results);
         setTotalPage(total_pages);
         setStatus(Status.RESOLVED);
@@ -79,7 +82,7 @@ export default function MoviesSerchView() {
         setStatus(Status.REJECTED);
       });
   }, [searchMovie, page]);
-
+  console.log(totalPage);
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -101,15 +104,18 @@ export default function MoviesSerchView() {
       )}
 
       {status === Status.RESOLVED && (
-        <ul>
-          {movie.map(({ title, id }) => (
-            <li key={id}>
-              <Link
-                to={{ pathname: `${url}/${id}`, state: { from: location } }}
-              >
-                {title}
-              </Link>
-            </li>
+        <ul className={s.content}>
+          {movie.map(({ id, title, poster_path, vote_average, genres }) => (
+            // <Link to={{ pathname: `${url}/${id}`, state: { from: location } }}>
+            <CardFilm
+              id={id}
+              key={id}
+              title={title}
+              poster_path={poster_path}
+              vote_average={vote_average}
+              genres={genres}
+            />
+            // </Link>
           ))}
         </ul>
       )}

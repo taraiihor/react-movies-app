@@ -11,6 +11,11 @@ async function fetchErrorHandling(url = '') {
 export function fetchTrendingMovies() {
   return fetchErrorHandling(`${BASE_URL}/trending/movie/day?api_key=${KEY}`);
 }
+export function fetchPopularMovies(page) {
+  return fetchErrorHandling(
+    `${BASE_URL}/movie/popular?api_key=${KEY}&language=en-US&page=${page}`,
+  );
+}
 export function fetchMoviesId(movieId) {
   return fetchErrorHandling(
     `${BASE_URL}/movie/${movieId}?api_key=${KEY}&language=en-US`,
@@ -51,21 +56,3 @@ export function insertGenresToMovieObj() {
     });
   });
 }
-// function insertGenresToSearchObj() {
-//   return this.fetchSearchArticles().then(data => {
-//     return this.fetchGenres().then(genresList => {
-//       let release_date;
-//       return data.map(movie => ({
-//         ...movie,
-//         release_date: movie.release_date
-//           ? movie.release_date.split('-')[0]
-//           : 'n/a',
-//         genres: movie.genre_ids
-//           ? movie.genre_ids
-//               .map(id => genresList.filter(el => el.id === id))
-//               .flat()
-//           : 'n/a',
-//       }));
-//     });
-//   });
-// }
