@@ -55,3 +55,14 @@
 .content__link {
   color: rgba(36, 43, 45, 0.4);
 }
+.social {
+  display: flex;
+}
+
+.social__item {
+  margin-left: 10px;
+}
+
+.social__link {
+  color: rgba(36, 43, 45, 0.4);
+}

@@ -1,11 +1,16 @@
 import s from './Hero.module.css';
-import bg from '../../image/junglebook.jpg';
+// import bg from '../../image/junglebook.jpg';
+
+import AppendDots from '../Slider';
 
 function Hero() {
   return (
     <>
       <section className={s.bg}>
-        <img src={bg} alt="" />
+        <div></div>
+        <AppendDots />
+
+        {/* <img src={bg} alt="" />
 
         <div className={s.description}>
           <h2 className={s.title}>The Jungle Book</h2>
@@ -14,7 +19,7 @@ function Hero() {
             <span>insignia</span>
             <p className={s.rating__number}>4.8</p>
           </div>
-        </div>
+        </div> */}
       </section>
     </>
   );

@@ -3,7 +3,7 @@
   margin: 15px;
   border-radius: 3px;
   box-shadow: 0px 5px 20px 0 rgba(0, 0, 0, 0.04);
-  background-color: #e2e2e2;
+  background-color: #ffffff;
 }
 .poser {
   display: flex;
@@ -38,6 +38,9 @@
 }
 
 .rating__number {
+  width: 30px;
+  display: inline-block;
+
   padding: 3px 6px;
 
   font-family: HelveticaNeue;
@@ -47,7 +50,7 @@
   font-stretch: normal;
   font-style: normal;
   letter-spacing: 0.48px;
-  text-align: left;
+  text-align: center;
 
   border-radius: 3px;
   border: solid 1px #0aaee4;

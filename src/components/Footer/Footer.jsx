@@ -1,5 +1,6 @@
 import s from './Footer.module.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { FaLinkedinIn, FaGithub } from 'react-icons/fa';
 
 function Footer() {
   return (
@@ -30,10 +31,17 @@ function Footer() {
           </a>
         </div>
         <div>
-          <ul>
-            <Link>
-              <li>Social</li>
-            </Link>
+          <ul className={s.social}>
+            <li className={s.social__item}>
+              <a href="/" className={s.social__link}>
+                <FaLinkedinIn />
+              </a>
+            </li>
+            <li className={s.social__item}>
+              <a href="/" className={s.social__link}>
+                <FaGithub />
+              </a>
+            </li>
           </ul>
         </div>
       </div>
