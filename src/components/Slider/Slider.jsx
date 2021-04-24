@@ -2,7 +2,7 @@ import Slider from 'react-slick';
 import noImage from '../../image/junglebook.jpg';
 import { useEffect, useState } from 'react';
 import * as moviesApi from '../../service/api';
-import { Rating } from '@material-ui/lab';
+import Rating from '@material-ui/lab/Rating';
 
 import s from './Slider.module.css';
 
@@ -13,6 +13,7 @@ export default function AppendDots() {
       setMovies(results);
     });
   }, []);
+
   console.log(movies);
   const settings = {
     dots: true,
@@ -56,7 +57,6 @@ export default function AppendDots() {
               vote_average,
               genres,
               release_date,
-              popularity,
             }) => (
               <div key={id}>
                 <div className={s.bgc}>
@@ -78,7 +78,11 @@ export default function AppendDots() {
                   </p>
                   <div className={s.rating}>
                     <span>
-                      <Rating defaultValue={2.5} precision={0.5} readOnly />
+                      <Rating
+                        value={0.5 * vote_average}
+                        precision={0.1}
+                        readOnly
+                      />
                     </span>
                     <p className={s.rating__number}>{`${vote_average}`}</p>
                   </div>

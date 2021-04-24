@@ -55,3 +55,10 @@ a:link,
 .slick-dots li.slick-active button:before {
   color: #0aaee4;
 }
+.MuiRating-decimal {
+  color: #0aaee4;
+}
+
+.MuiRating-icon.MuiRating-iconEmpty.rad {
+  color: rgba(0, 0, 0, 0.7);
+}
