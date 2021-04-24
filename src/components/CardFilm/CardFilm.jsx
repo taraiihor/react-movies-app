@@ -3,7 +3,7 @@ import noImage from '../../image/488px-No-Image-Placeholder.svg.png';
 
 import { Link, useLocation } from 'react-router-dom';
 
-function CardFilm({ id, title, poster_path, vote_average, genres }) {
+function CardFilm({ id, title, poster_path, vote_average, genres, overview }) {
   const location = useLocation();
 
   return (
@@ -26,6 +26,17 @@ function CardFilm({ id, title, poster_path, vote_average, genres }) {
           {/* <p className={s.genres}>
             {genres.map(genre => genre.name).join(', ')}
           </p> */}
+        </div>
+        <div className={s.hide}>
+          {/* <Link href="/">+ Favorites</Link> */}
+          <p className={s.hide__link}>+ Favorites</p>
+          <div className={s.hide__content}>
+            <h2 className={s.hide__title}>{title}</h2>
+            <p className={s.hide__rating__number}>{`${vote_average}`}</p>
+          </div>
+
+          <p className={s.hide__text}>{overview}</p>
+          <button className={s.hide__button}>Watch Now</button>
         </div>
       </li>
     </Link>

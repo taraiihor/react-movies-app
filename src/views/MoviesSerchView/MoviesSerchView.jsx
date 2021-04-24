@@ -105,18 +105,21 @@ export default function MoviesSerchView() {
 
       {status === Status.RESOLVED && (
         <ul className={s.content}>
-          {movie.map(({ id, title, poster_path, vote_average, genres }) => (
-            // <Link to={{ pathname: `${url}/${id}`, state: { from: location } }}>
-            <CardFilm
-              id={id}
-              key={id}
-              title={title}
-              poster_path={poster_path}
-              vote_average={vote_average}
-              genres={genres}
-            />
-            // </Link>
-          ))}
+          {movie.map(
+            ({ id, title, poster_path, vote_average, genres, overview }) => (
+              // <Link to={{ pathname: `${url}/${id}`, state: { from: location } }}>
+              <CardFilm
+                id={id}
+                key={id}
+                title={title}
+                poster_path={poster_path}
+                vote_average={vote_average}
+                genres={genres}
+                overview={overview}
+              />
+              // </Link>
+            ),
+          )}
         </ul>
       )}
       {status === Status.RESOLVED && totalPage > 1 && (

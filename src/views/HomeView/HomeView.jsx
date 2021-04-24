@@ -29,16 +29,19 @@ export default function HomeView() {
       <div>
         <ul className={s.content}>
           {movies &&
-            movies.map(({ id, title, poster_path, vote_average, genres }) => (
-              <CardFilm
-                id={id}
-                key={id}
-                title={title}
-                poster_path={poster_path}
-                vote_average={vote_average}
-                genres={genres}
-              />
-            ))}
+            movies.map(
+              ({ id, title, poster_path, vote_average, genres, overview }) => (
+                <CardFilm
+                  id={id}
+                  key={id}
+                  title={title}
+                  poster_path={poster_path}
+                  vote_average={vote_average}
+                  genres={genres}
+                  overview={overview}
+                />
+              ),
+            )}
         </ul>
         {totalPage > 1 && (
           <Pagination
