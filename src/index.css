@@ -47,3 +47,11 @@ a:link,
 :active {
   text-decoration: none;
 }
+
+.slick-dots li button:before {
+  color: #ffffff;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #0aaee4;
+}

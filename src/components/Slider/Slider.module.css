@@ -5,9 +5,6 @@
   width: 1200px;
   height: 550px;
 }
-.bgc {
-  background-color: black;
-}
 
 .description {
   position: absolute;
@@ -72,6 +69,25 @@
   height: 550px;
   object-fit: cover;
 }
-.backgroundColor {
-  background-color: rgba(0, 0, 0, 0.56);
+
+.bgc:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 550px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background-color: black;
+  opacity: 0.4;
+}
+
+.bgc {
+  display: inline-block;
+  position: relative;
+  line-height: 0;
+  width: 100%;
+  height: 550px;
+  /* background-color: black; */
 }

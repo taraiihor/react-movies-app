@@ -1,6 +1,5 @@
 import Slider from 'react-slick';
 import noImage from '../../image/junglebook.jpg';
-// import bg from '../../image/junglebook.jpg';
 import { useEffect, useState } from 'react';
 import * as moviesApi from '../../service/api';
 import { Rating } from '@material-ui/lab';
@@ -18,11 +17,7 @@ export default function AppendDots() {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    pauseOnHover: true,
-
-    // speed: 500,
+    arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
 
@@ -32,10 +27,6 @@ export default function AppendDots() {
           display: 'flex',
           justifyContent: 'flex-end',
           bottom: '80px',
-
-          // backgroundColor: '#ddd',
-          // borderRadius: '10px',
-
           padding: '10px',
         }}
       >
@@ -52,43 +43,10 @@ export default function AppendDots() {
         </ul>
       </div>
     ),
-    customPaging: dots => (
-      <div
-        style={{
-          width: '3px',
-          height: '13px',
-          opacity: 0.5,
-          backgroundColor: '#ffffff',
-        }}
-      ></div>
-    ),
-    customElements: '.slick-active',
   };
   return (
     <div>
-      {/* <h2>Append Dots</h2> */}
       <Slider {...settings}>
-        {/* <li className={s.bg} key={id}>
-          <div className={s.poser}>
-            <img
-              src={
-                poster_path
-                  ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                  : noImage
-              }
-              alt=""
-              className={s.cover}
-            />
-          </div>
-          <div className={s.containerText}>
-            <h2 className={s.title}>{title}</h2>
-            <p className={s.rating__number}>{`${vote_average}`}</p>
-            <p className={s.genres}>
-            {genres.map(genre => genre.name).join(', ')}
-          </p>
-          </div>
-        </li> */}
-
         {movies &&
           movies.map(
             ({
@@ -100,8 +58,7 @@ export default function AppendDots() {
               release_date,
               popularity,
             }) => (
-              <div key={id} className={s.backgroundColor}>
-                {/* <img src={bg} alt="" /> */}
+              <div key={id}>
                 <div className={s.bgc}>
                   <img
                     src={

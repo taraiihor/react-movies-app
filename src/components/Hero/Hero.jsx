@@ -7,7 +7,6 @@ function Hero() {
   return (
     <>
       <section className={s.bg}>
-        <div></div>
         <AppendDots />
 
         {/* <img src={bg} alt="" />
