@@ -65,7 +65,7 @@ export default function AppendDots() {
                   <img
                     src={
                       backdrop_path
-                        ? `https://image.tmdb.org/t/p/w500/${backdrop_path}`
+                        ? `https://image.tmdb.org/t/p/original/${backdrop_path}`
                         : noImage
                     }
                     alt=""
