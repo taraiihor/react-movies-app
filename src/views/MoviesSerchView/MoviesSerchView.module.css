@@ -3,5 +3,45 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: -20px;
-  padding-bottom: 140px;
+  padding-bottom: 60px;
+}
+.search__content {
+  padding: 40px 20px;
+}
+.searchForm {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.searchForm__input {
+  padding: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: transparent;
+  border: 0;
+
+  border-bottom: 1px solid #47c3f0;
+}
+.search__buttom {
+  font-family: HelveticaNeue;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: 0.56px;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px 15px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #47c3f0;
+
+  border: 0;
+  border-radius: 4px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
 }

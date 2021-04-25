@@ -3,11 +3,10 @@
   text-decoration: none;
   padding: 12px;
   font-weight: 500;
-  color: #2a366b;
+  color: #ffffff;
   font-size: 18px;
 }
 
 .activeLink {
-  composes: link;
-  color: blueviolet;
+  color: #0aaee4;
 }

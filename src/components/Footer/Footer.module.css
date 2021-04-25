@@ -1,10 +1,9 @@
 .footer {
-  height: 130px;
+  margin: 0 auto;
+  width: 1280px;
+  height: 100px;
   background-color: white;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-top: 40px;
-  padding-bottom: 24px;
+  padding: 15px 70px;
 }
 .content {
   display: flex;
@@ -12,7 +11,7 @@
 
 .list {
   display: flex;
-  margin-right: 290px;
+  margin-right: 335px;
   font-family: HelveticaNeue;
   font-size: 12px;
   font-weight: normal;
@@ -38,7 +37,7 @@
   text-decoration: none;
 }
 .copirynght {
-  margin-top: 18px;
+  margin-top: 13px;
   font-family: TimesNewRomanPSMT;
   font-size: 12px;
   font-weight: normal;

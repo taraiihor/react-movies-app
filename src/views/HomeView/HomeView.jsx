@@ -4,6 +4,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import CardFilm from '../../components/CardFilm';
 import * as moviesApi from '../../service/api';
 import { Pagination } from '@material-ui/lab';
+import Hero from '../../components/Hero';
 
 export default function HomeView() {
   const [movies, setMovies] = useState(null);
@@ -27,6 +28,7 @@ export default function HomeView() {
   return (
     <>
       <div>
+        <Hero />
         <ul className={s.content}>
           {movies &&
             movies.map(

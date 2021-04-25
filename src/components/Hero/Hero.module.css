@@ -1,8 +1,10 @@
 .bg {
   position: relative;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
   display: block;
-  width: 1200px;
+  max-width: 1280px;
   height: 550px;
 }
 

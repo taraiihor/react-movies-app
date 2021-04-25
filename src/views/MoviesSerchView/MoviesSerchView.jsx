@@ -9,7 +9,7 @@ import Loader from 'react-loader-spinner';
 import { toast } from 'react-toastify';
 
 import { Pagination } from '@material-ui/lab';
-import useStyles from '../../service/PaginationStyles';
+// import useStyles from '../../service/PaginationStyles';
 import CardFilm from '../../components/CardFilm';
 
 const Status = {
@@ -28,7 +28,7 @@ export default function MoviesSerchView() {
   const [totalPage, setTotalPage] = useState(0);
   const [status, setStatus] = useState(Status.IDLE);
   //Запуск стилів пагінації
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const history = useHistory();
   // console.log(history);
@@ -72,7 +72,6 @@ export default function MoviesSerchView() {
             new Error(`По вашому пошуку нічого не знайшли`),
           );
         }
-        console.log(results);
         setMovie(results);
         setTotalPage(total_pages);
         setStatus(Status.RESOLVED);
@@ -82,54 +81,62 @@ export default function MoviesSerchView() {
         setStatus(Status.REJECTED);
       });
   }, [searchMovie, page]);
-  console.log(totalPage);
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input value={searchQuery} onChange={handleNameChangle} />
-        <button type="submit">Пошук</button>
-      </form>
+      <div className={s.search__content}>
+        <form className={s.searchForm} onSubmit={handleSubmit}>
+          <label htmlFor="">Enter the title of the movie</label>
+          <input
+            className={s.searchForm__input}
+            value={searchQuery}
+            onChange={handleNameChangle}
+          />
+          <button className={s.search__buttom} type="submit">
+            Search
+          </button>
+        </form>
 
-      {status === Status.IDLE && <div>Ведіть назву Фільму </div>}
-      {status === Status.REJECTED && <ErrorView message={error.message} />}
-      {status === Status.PENDING && (
-        <Loader
-          className="Loding"
-          type="ThreeDots"
-          color="#00BFFF"
-          height={100}
-          width={100}
-          timeout={5000} //3 secs
-        />
-      )}
+        {/* {status === Status.IDLE && <div>Ведіть назву Фільму </div>} */}
+        {status === Status.REJECTED && <ErrorView message={error.message} />}
+        {status === Status.PENDING && (
+          <Loader
+            className="Loding"
+            type="ThreeDots"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={5000} //3 secs
+          />
+        )}
 
-      {status === Status.RESOLVED && (
-        <ul className={s.content}>
-          {movie.map(
-            ({ id, title, poster_path, vote_average, genres, overview }) => (
-              // <Link to={{ pathname: `${url}/${id}`, state: { from: location } }}>
-              <CardFilm
-                id={id}
-                key={id}
-                title={title}
-                poster_path={poster_path}
-                vote_average={vote_average}
-                genres={genres}
-                overview={overview}
-              />
-              // </Link>
-            ),
-          )}
-        </ul>
-      )}
-      {status === Status.RESOLVED && totalPage > 1 && (
-        <Pagination
-          className={classes.root}
-          count={totalPage}
-          onChange={onPaginationPage}
-          page={Number(page)}
-        />
-      )}
+        {status === Status.RESOLVED && (
+          <ul className={s.content}>
+            {movie.map(
+              ({ id, title, poster_path, vote_average, genres, overview }) => (
+                // <Link to={{ pathname: `${url}/${id}`, state: { from: location } }}>
+                <CardFilm
+                  id={id}
+                  key={id}
+                  title={title}
+                  poster_path={poster_path}
+                  vote_average={vote_average}
+                  genres={genres}
+                  overview={overview}
+                />
+                // </Link>
+              ),
+            )}
+          </ul>
+        )}
+        {status === Status.RESOLVED && totalPage > 1 && (
+          <Pagination
+            className={s.pagination}
+            count={totalPage}
+            onChange={onPaginationPage}
+            page={Number(page)}
+          />
+        )}
+      </div>
     </>
   );
 }

@@ -10,9 +10,10 @@
 .poser {
   display: flex;
   width: 250px;
-  max-height: 330px;
+  height: 340px;
 }
 .cover {
+  width: 100%;
   object-fit: cover;
 }
 .containerText {

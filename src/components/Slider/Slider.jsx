@@ -8,19 +8,21 @@ import s from './Slider.module.css';
 
 export default function AppendDots() {
   const [movies, setMovies] = useState(null);
+
   useEffect(() => {
     moviesApi.insertGenresToMovieObj().then(results => {
       setMovies(results);
     });
   }, []);
 
-  console.log(movies);
   const settings = {
     dots: true,
     infinite: true,
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
 
     appendDots: dots => (
       <div
@@ -28,7 +30,7 @@ export default function AppendDots() {
           display: 'flex',
           justifyContent: 'flex-end',
           bottom: '80px',
-          padding: '10px',
+          paddingRight: '40px',
         }}
       >
         <ul
