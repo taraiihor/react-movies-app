@@ -14,7 +14,7 @@ export default function AppendDots() {
       setMovies(results);
     });
   }, []);
-
+  console.log(1);
   const settings = {
     dots: true,
     infinite: true,

@@ -11,6 +11,22 @@ async function fetchErrorHandling(url = '') {
 export function fetchTrendingMovies() {
   return fetchErrorHandling(`${BASE_URL}/trending/movie/day?api_key=${KEY}`);
 }
+export function fetchGenres() {
+  return fetchErrorHandling(`${BASE_URL}/genre/movie/list?api_key=${KEY}`);
+}
+export function insertGenresToMovieObj() {
+  return fetchTrendingMovies().then(({ results }) => {
+    return fetchGenres().then(({ genres }) => {
+      return results.map(movie => ({
+        ...movie,
+        release_date: movie.release_date.split('-')[0],
+        genres: movie.genre_ids
+          .map(id => genres.filter(el => el.id === id))
+          .flat(),
+      }));
+    });
+  });
+}
 export function fetchPopularMovies(page) {
   return fetchErrorHandling(
     `${BASE_URL}/movie/popular?api_key=${KEY}&language=en-US&page=${page}`,
@@ -38,21 +54,4 @@ export function fetchSearchMovies(searchQuery, page) {
   return fetchErrorHandling(
     `${BASE_URL}/search/movie?api_key=${KEY}&language=en-US&query=${searchQuery}&page=${page}&include_adult=false`,
   );
-}
-
-export function fetchGenres() {
-  return fetchErrorHandling(`${BASE_URL}/genre/movie/list?api_key=${KEY}`);
-}
-export function insertGenresToMovieObj() {
-  return fetchTrendingMovies().then(({ results }) => {
-    return fetchGenres().then(({ genres }) => {
-      return results.map(movie => ({
-        ...movie,
-        release_date: movie.release_date.split('-')[0],
-        genres: movie.genre_ids
-          .map(id => genres.filter(el => el.id === id))
-          .flat(),
-      }));
-    });
-  });
 }

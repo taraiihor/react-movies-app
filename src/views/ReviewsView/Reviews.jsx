@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import * as moviesApi from '../service/api';
-import ErrorView from './ErrorView';
+import * as moviesApi from '../../service/api';
+import ErrorView from '../ErrorView';
+import s from './Reviews.module.css';
 
 export default function Reviews({ movieId }) {
   const [reviews, setReviews] = useState(null);
@@ -24,9 +25,9 @@ export default function Reviews({ movieId }) {
     <>
       {error && <ErrorView message={error.message} />}
       {reviews && (
-        <ul>
+        <ul className={s.list}>
           {reviews.map(({ id, author, content }) => (
-            <li key={id}>
+            <li className={s.item} key={id}>
               <p>{author}</p>
               <p>{content}</p>
             </li>

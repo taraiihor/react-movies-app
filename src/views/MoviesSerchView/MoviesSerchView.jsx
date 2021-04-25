@@ -100,7 +100,7 @@ export default function MoviesSerchView() {
         {status === Status.REJECTED && <ErrorView message={error.message} />}
         {status === Status.PENDING && (
           <Loader
-            className="Loding"
+            className={s.Loding}
             type="ThreeDots"
             color="#00BFFF"
             height={100}

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import * as moviesApi from '../service/api';
-import ErrorView from './ErrorView';
-import noImage from '../image/488px-No-Image-Placeholder.svg.png';
-
+import * as moviesApi from '../../service/api';
+import ErrorView from '../ErrorView';
+import noImage from '../../image/488px-No-Image-Placeholder.svg.png';
+import s from './Cast.module.css';
 export default function CastView({ movieId }) {
   const [cast, setCast] = useState(null);
   const [error, setError] = useState(null);
@@ -27,9 +27,9 @@ export default function CastView({ movieId }) {
       {error && <ErrorView message={error.message} />}
 
       {cast && (
-        <ul>
+        <ul className={s.cast__list}>
           {cast.map(({ id, profile_path, name, character }) => (
-            <li key={id}>
+            <li key={id} className={s.cast__item}>
               <img
                 src={
                   profile_path
@@ -37,7 +37,7 @@ export default function CastView({ movieId }) {
                     : noImage
                 }
                 alt={name}
-                width="70px"
+                className={s.cover}
               />
               <p>{name}</p>
               <p>Character: {character}</p>
