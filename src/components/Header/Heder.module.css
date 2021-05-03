@@ -17,7 +17,7 @@
 }
 .logo {
   display: block;
-  font-family: TwCenMT;
+  font-family: Roboto;
   font-size: 24.8px;
   font-weight: 800;
   font-stretch: condensed;
@@ -29,7 +29,7 @@
 }
 .navigation {
   margin: 8.5px 30px 9.5px 22px;
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;

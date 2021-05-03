@@ -1,56 +1,45 @@
-import Slider from 'react-slick';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import noImage from '../../image/junglebook.jpg';
-import { useEffect, useState } from 'react';
-import * as moviesApi from '../../service/api';
+import Loader from 'react-loader-spinner';
 import Rating from '@material-ui/lab/Rating';
+import s from './Swiper.module.css';
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Scrollbar,
+  Autoplay,
+} from 'swiper/core';
 
-import s from './Slider.module.css';
+// Import Swiper styles
+import '../../index.css';
 
-export default function AppendDots() {
-  const [movies, setMovies] = useState(null);
+SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay]);
 
-  useEffect(() => {
-    moviesApi.insertGenresToMovieObj().then(results => {
-      setMovies(results);
-    });
-  }, []);
+export default function SlideSwiper({ movies }) {
   console.log(1);
-  const settings = {
-    dots: true,
-    infinite: true,
-    arrows: false,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-
-    appendDots: dots => (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          bottom: '80px',
-          paddingRight: '40px',
-        }}
-      >
-        <ul
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            flexWrap: 'wrap',
-            margin: '10px',
-          }}
-        >
-          {' '}
-          {dots}{' '}
-        </ul>
-      </div>
-    ),
-  };
   return (
-    <div>
-      <Slider {...settings}>
-        {movies &&
+    <>
+      <Swiper
+        pagination={{ clickable: true }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        spaceBetween={50}
+        slidesPerView={1}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={swiper => console.log(swiper)}
+      >
+        {movies && (
+            <Loader
+              className="BallTriangle"
+              type="ThreeDots"
+              color="#00BFFF"
+              height={100}
+              width={100}
+              timeout={5000} //3 secs
+            />
+          ) &&
           movies.map(
             ({
               id,
@@ -60,7 +49,7 @@ export default function AppendDots() {
               genres,
               release_date,
             }) => (
-              <div key={id}>
+              <SwiperSlide key={id}>
                 <div className={s.bgc}>
                   <img
                     src={
@@ -89,10 +78,10 @@ export default function AppendDots() {
                     <p className={s.rating__number}>{`${vote_average}`}</p>
                   </div>
                 </div>
-              </div>
+              </SwiperSlide>
             ),
           )}
-      </Slider>
-    </div>
+      </Swiper>
+    </>
   );
 }

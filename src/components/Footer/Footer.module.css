@@ -12,7 +12,7 @@
 .list {
   display: flex;
   margin-right: 335px;
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -26,7 +26,7 @@
 }
 .logo {
   margin-right: 370px;
-  font-family: TwCenMT;
+  font-family: Roboto;
   font-size: 24.8px;
   font-weight: 800;
   font-stretch: condensed;
@@ -38,7 +38,7 @@
 }
 .copirynght {
   margin-top: 13px;
-  font-family: TimesNewRomanPSMT;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;

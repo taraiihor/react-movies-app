@@ -11,6 +11,7 @@ import MoviesSerchView from './views/MoviesSerchView';
 import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import NoPage from './components/NoPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Header />
 
         <ToastContainer />
+
         <Suspense
           fallback={
             <Loader
@@ -40,6 +42,9 @@ function App() {
             </Route>
             <Route path="/movies/:movieId">
               <MovieDetailsPage />
+            </Route>
+            <Route>
+              <NoPage />
             </Route>
           </Switch>
         </Suspense>
