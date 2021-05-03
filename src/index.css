@@ -48,17 +48,43 @@ a:link,
   text-decoration: none;
 }
 
-.slick-dots li button:before {
-  color: #ffffff;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #0aaee4;
-}
 .MuiRating-decimal {
   color: #0aaee4;
 }
 
 .MuiRating-icon.MuiRating-iconEmpty.rad {
   color: rgba(0, 0, 0, 0.7);
+}
+/*Custum Swiper*/
+.swiper-pagination-bullet {
+  width: 3px;
+  height: 14px;
+  background: #ffffff;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0aaee4;
+  opacity: 1;
+}
+
+.swiper-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.swiper-container-horizontal
+  > .swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  margin: 4px;
+}
+
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  left: 1230px;
+  width: 0;
+  bottom: 35px;
 }

@@ -7,7 +7,6 @@ export default function CastView({ movieId }) {
   const [cast, setCast] = useState(null);
   const [error, setError] = useState(null);
 
-  // console.log(movieId);
   useEffect(() => {
     moviesApi
       .fetchCast(movieId)
@@ -21,7 +20,6 @@ export default function CastView({ movieId }) {
         setError(error);
       });
   }, [movieId]);
-  // console.log(cast);
   return (
     <>
       {error && <ErrorView message={error.message} />}

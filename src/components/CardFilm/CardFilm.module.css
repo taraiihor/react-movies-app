@@ -25,6 +25,8 @@
 .title {
   width: 160px;
 
+  font-family: Roboto;
+
   font-size: 14px;
   font-weight: bold;
   font-stretch: normal;
@@ -46,7 +48,7 @@
 
   padding: 3px 6px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
   font-weight: normal;
@@ -63,7 +65,7 @@
 .genres {
   margin-top: 8px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -121,7 +123,7 @@
   padding: 3px 6px;
   width: 30px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-weight: 500;
   font-size: 12px;
   font-weight: normal;
@@ -144,7 +146,7 @@
 .hide__text {
   height: 216px;
   margin-bottom: 20px;
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 13px;
   font-weight: normal;
   font-stretch: normal;
@@ -160,7 +162,7 @@
 }
 
 .hide__button {
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;

@@ -3,7 +3,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  display: block;
   max-width: 1280px;
   height: 550px;
 }
@@ -17,7 +16,7 @@
 .title {
   margin-bottom: 13px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 30px;
   font-weight: bold;
   font-stretch: normal;
@@ -31,7 +30,7 @@
 .genres {
   margin-bottom: 23px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -51,7 +50,7 @@
   padding: 4px 7px;
   margin-left: 7px;
 
-  font-family: HelveticaNeue;
+  font-family: Roboto;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
@@ -61,4 +60,8 @@
 
   border-radius: 3px;
   border: solid 1px #0aaee4;
+}
+
+.Loding {
+  text-align: center;
 }
