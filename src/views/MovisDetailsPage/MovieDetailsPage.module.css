@@ -106,11 +106,11 @@
   letter-spacing: 0.56px;
   text-align: center;
 
-  padding: 5px 15px;
   margin: 0 15px;
   border-radius: 5px;
   background-color: #47c3f0;
 }
 .info__link {
+  padding: 4px 25px;
   color: #ffffff;
 }

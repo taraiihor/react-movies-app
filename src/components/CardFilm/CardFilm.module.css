@@ -43,13 +43,11 @@
 }
 
 .rating__number {
-  width: 30px;
   display: inline-block;
 
   padding: 3px 6px;
 
   font-family: Roboto;
-  font-weight: 500;
   font-size: 12px;
   font-weight: normal;
   font-stretch: normal;
