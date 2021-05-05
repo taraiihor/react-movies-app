@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,8 +12,15 @@ import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NoPage from './components/NoPage';
+import Fal from './views/Fal';
 
 function App() {
+  const [items, setItems] = useState([]);
+
+  const onItem = movies => {
+    const newMovis = [...items, movies];
+    setItems(newMovis);
+  };
   return (
     <>
       <Container>
@@ -41,7 +48,10 @@ function App() {
               <MoviesSerchView />
             </Route>
             <Route path="/movies/:movieId">
-              <MovieDetailsPage />
+              <MovieDetailsPage onItem={onItem} />
+            </Route>
+            <Route path="/fal">
+              <Fal items={items} />
             </Route>
             <Route>
               <NoPage />

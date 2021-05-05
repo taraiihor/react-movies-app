@@ -20,7 +20,7 @@ const Reviews = lazy(() =>
   import('../ReviewsView' /* webpackChunkName: "reviews" */),
 );
 
-export default function MoviedetailsPage() {
+export default function MoviedetailsPage({ onItem }) {
   const location = useLocation();
   const history = useHistory();
   const { url, path } = useRouteMatch();
@@ -84,6 +84,7 @@ export default function MoviedetailsPage() {
                 <span className={s.text__containerTitle}>Genres: </span>
                 {`${movies.genres.map(genre => genre.name).join(', ')}`}
               </p>
+              <button onClick={() => onItem(movies)}>Додати фільм</button>
             </div>
           </div>
 

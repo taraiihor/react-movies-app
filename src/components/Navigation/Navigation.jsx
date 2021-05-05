@@ -18,6 +18,13 @@ const Navigation = () => (
     >
       Movies
     </NavLink>
+    <NavLink
+      to="/fal"
+      className={style.link}
+      activeClassName={style.activeLink}
+    >
+      Fal
+    </NavLink>
   </nav>
 );
 
