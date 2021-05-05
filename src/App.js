@@ -18,9 +18,13 @@ function App() {
   const [items, setItems] = useState([]);
 
   const onItem = movies => {
+    if (items.find(item => item.id === movies.id)) {
+      return setItems(items.filter(item => item.id !== movies.id));
+    }
     const newMovis = [...items, movies];
     setItems(newMovis);
   };
+  console.log(items);
   return (
     <>
       <Container>
