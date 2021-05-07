@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,19 +12,30 @@ import Loader from 'react-loader-spinner';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import NoPage from './components/NoPage';
-import Fal from './views/Fal';
+import FavoritesView from './views/FavoritesView';
+
+const useLocalStorage = (key, defaultValue) => {
+  const [state, setState] = useState(
+    () => JSON.parse(window.localStorage.getItem(key)) ?? defaultValue,
+  );
+
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+};
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [favorites, setFavorites] = useLocalStorage('favorites', []);
 
-  const onItem = movies => {
-    if (items.find(item => item.id === movies.id)) {
-      return setItems(items.filter(item => item.id !== movies.id));
+  const addFavorites = movies => {
+    if (favorites.find(item => item.id === movies.id)) {
+      return setFavorites(favorites.filter(item => item.id !== movies.id));
     }
-    const newMovis = [...items, movies];
-    setItems(newMovis);
+    const newMovies = [...favorites, movies];
+    setFavorites(newMovies);
   };
-  console.log(items);
   return (
     <>
       <Container>
@@ -52,10 +63,10 @@ function App() {
               <MoviesSerchView />
             </Route>
             <Route path="/movies/:movieId">
-              <MovieDetailsPage onItem={onItem} />
+              <MovieDetailsPage addFavorites={addFavorites} />
             </Route>
-            <Route path="/fal">
-              <Fal items={items} />
+            <Route path="/favorites">
+              <FavoritesView movies={favorites} />
             </Route>
             <Route>
               <NoPage />

@@ -29,7 +29,9 @@ function CardFilm({ id, title, poster_path, vote_average, genres, overview }) {
         </div>
         <div className={s.hide}>
           {/* <Link href="/">+ Favorites</Link> */}
-          {/* <p className={s.hide__link}>+ Favorites</p> */}
+          {/* <button className={s.hide__link} onClick={() => addFavorites()}>
+            + Favorites
+          </button> */}
           <div className={s.hide__content}>
             <h2 className={s.hide__title}>{title}</h2>
             <p className={s.hide__rating__number}>{`${vote_average}`}</p>

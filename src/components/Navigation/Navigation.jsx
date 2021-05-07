@@ -19,11 +19,11 @@ const Navigation = () => (
       Movies
     </NavLink>
     <NavLink
-      to="/fal"
+      to="/favorites"
       className={style.link}
       activeClassName={style.activeLink}
     >
-      Fal
+      Favorites
     </NavLink>
   </nav>
 );

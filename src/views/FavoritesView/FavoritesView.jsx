@@ -1,12 +1,12 @@
 import CardFilm from '../../components/CardFilm';
-import s from './Fal.module.css';
-function Fal({ items }) {
+import s from './FavoritesView.module.css';
+
+function FavoritesView({ movies }) {
   return (
     <>
-      <h2>Тут картки</h2>
       <ul className={s.content}>
-        {items &&
-          items.map(
+        {movies &&
+          movies.map(
             ({ id, title, poster_path, vote_average, genres, overview }) => (
               <CardFilm
                 id={id}
@@ -24,4 +24,4 @@ function Fal({ items }) {
   );
 }
 
-export default Fal;
+export default FavoritesView;

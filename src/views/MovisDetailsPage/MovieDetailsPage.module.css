@@ -49,10 +49,32 @@
   width: 250px;
   margin-right: 30px;
 }
-
+.container__button {
+  position: relative;
+}
 .button_container {
   position: absolute;
 
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: 0.56px;
+  text-align: center;
+  color: #ffffff;
+  padding: 5px 15px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #47c3f0;
+
+  border: 0;
+}
+
+.button_favorites {
+  position: absolute;
+  right: 30px;
   font-family: Roboto;
   font-size: 14px;
   font-weight: normal;
