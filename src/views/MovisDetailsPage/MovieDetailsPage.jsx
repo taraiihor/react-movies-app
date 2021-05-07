@@ -20,7 +20,7 @@ const Reviews = lazy(() =>
   import('../ReviewsView' /* webpackChunkName: "reviews" */),
 );
 
-export default function MoviedetailsPage() {
+export default function MoviedetailsPage({ addFavorites }) {
   const location = useLocation();
   const history = useHistory();
   const { url, path } = useRouteMatch();
@@ -45,13 +45,20 @@ export default function MoviedetailsPage() {
       {movies && (
         <>
           <div className={s.movie__container}>
-            <div>
+            <div className={s.container__button}>
               <button
                 className={s.button_container}
                 type="button"
                 onClick={onGoBack}
               >
                 back
+              </button>
+              <button
+                className={s.button_favorites}
+                type="button"
+                onClick={() => addFavorites(movies)}
+              >
+                + Favorites
               </button>
               <div className={s.img__container}>
                 <img
