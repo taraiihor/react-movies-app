@@ -63,7 +63,10 @@ function App() {
               <MoviesSerchView />
             </Route>
             <Route path="/movies/:movieId">
-              <MovieDetailsPage addFavorites={addFavorites} />
+              <MovieDetailsPage
+                addFavorites={addFavorites}
+                favorites={favorites}
+              />
             </Route>
             <Route path="/favorites">
               <FavoritesView movies={favorites} />

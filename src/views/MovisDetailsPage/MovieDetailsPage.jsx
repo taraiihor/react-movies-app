@@ -20,7 +20,7 @@ const Reviews = lazy(() =>
   import('../ReviewsView' /* webpackChunkName: "reviews" */),
 );
 
-export default function MoviedetailsPage({ addFavorites }) {
+export default function MoviedetailsPage({ addFavorites, favorites }) {
   const location = useLocation();
   const history = useHistory();
   const { url, path } = useRouteMatch();
@@ -40,6 +40,14 @@ export default function MoviedetailsPage({ addFavorites }) {
     // новий вид запису перевірки
     history.push(location?.state?.from ?? '/');
   };
+
+  const favoritesId = favorites
+    .map(item => item.id)
+    .find(
+      (
+        element, // eslint-disable-next-line
+      ) => element == movieId,
+    );
   return (
     <>
       {movies && (
@@ -58,7 +66,7 @@ export default function MoviedetailsPage({ addFavorites }) {
                 type="button"
                 onClick={() => addFavorites(movies)}
               >
-                + Favorites
+                {favoritesId ? '- Favorites' : '+ Favorites'}
               </button>
               <div className={s.img__container}>
                 <img
