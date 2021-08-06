@@ -27,6 +27,8 @@ export default function MoviedetailsPage({ addFavorites, favorites }) {
   const { movieId } = useParams();
   const [movies, setMovies] = useState(null);
 
+  //додам функцію.
+
   useEffect(() => {
     moviesApi.fetchMoviesId(movieId).then(setMovies);
   }, [movieId]);
