@@ -42,11 +42,10 @@ export default function MoviedetailsPage({ addFavorites, favorites }) {
   };
 
   const favoritesId = favorites
-    .map(item => item.id)
-    .find(
+     .find(
       (
         element, // eslint-disable-next-line
-      ) => element == movieId,
+      ) => element.id == movieId,
     );
   return (
     <>
