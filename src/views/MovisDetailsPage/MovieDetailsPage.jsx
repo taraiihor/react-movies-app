@@ -27,8 +27,6 @@ export default function MoviedetailsPage({ addFavorites, favorites }) {
   const { movieId } = useParams();
   const [movies, setMovies] = useState(null);
 
-  //додам функцію.
-
   useEffect(() => {
     moviesApi.fetchMoviesId(movieId).then(setMovies);
   }, [movieId]);
@@ -43,12 +41,11 @@ export default function MoviedetailsPage({ addFavorites, favorites }) {
     history.push(location?.state?.from ?? '/');
   };
 
-  const favoritesId = favorites
-     .find(
-      (
-        element, // eslint-disable-next-line
-      ) => element.id == movieId,
-    );
+  const favoritesId = favorites.find(
+    (
+      element, // eslint-disable-next-line
+    ) => element.id == movieId,
+  );
   return (
     <>
       {movies && (
