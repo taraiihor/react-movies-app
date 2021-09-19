@@ -16,7 +16,6 @@ import '../../index.css';
 SwiperCore.use([Navigation, Pagination, Scrollbar, Autoplay]);
 
 export default function SlideSwiper({ movies }) {
-  // console.log(1);
   return (
     <>
       <Swiper
